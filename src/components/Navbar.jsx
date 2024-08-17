@@ -6,10 +6,10 @@ const Navbar = () => {
       <div className=" container py-4 flex justify-between items-center">
        
         <div className="space-x-8">
-          <a href="#home" className="hover:text-gray-300 transition-colors duration-200">Home</a>
-          <a href="#about" className="hover:text-gray-300 transition-colors duration-200">About Me</a>
-          <a href="#project" className="hover:text-gray-300 transition-colors duration-200">Projects</a>
-          <a href="#contact" className="hover:text-gray-300 transition-colors duration-200">Contact</a>
+          <a href="#home" className="hover:underline">Home</a>
+          <a href="#about" className="hover:underline">About Me</a>
+          <a href="#project" className="hover:underline">Projects</a>
+          <a href="#contact" className="hover:underline">Contact</a>
         </div>
 
        
