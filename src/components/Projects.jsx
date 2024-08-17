@@ -8,14 +8,14 @@ const projects = [
     name: "Cryptotracker",
     technologies: "React",
     image: cryptotrack,
-    github: "https://github.com/sumit12376/crypto-tracker-reactjs",
+    github: "https://cryptotrackerr11.netlify.app/",
   },
   {
     id: 2,
     name: "currency convertor",
     technologies: "React",
     image: currconv,
-    github: "https://github.com/sumit12376/Currency-Converter-react-js",
+    github: "https://currencyconvert11.netlify.app/",
   },
   {
     id: 3,
@@ -41,7 +41,7 @@ const Projects = () => {
               <p className="text-gray-400 mb-4">{project.technologies}</p>
               <a href={project.github} className="inline-block bg-gradient-to-r 
               from-green-400 to-blue-500 text-white px-4 py-2 rounded-full" target="_blank" 
-              rel="noopener noreferrer">GitHub</a>
+              >Live</a>
             </div>
           ))}
         </div>
