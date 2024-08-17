@@ -22,6 +22,7 @@ const About = () => {
               <SkillBar label="React JS" width="w-10/12" />
               <SkillBar label="Tailwind CSS" width="w-9/12" />
               <SkillBar label="Java" width="w-9/12" />
+              <SkillBar label="SQL" width="w-10/12" />
             </div>
          
           </div>
