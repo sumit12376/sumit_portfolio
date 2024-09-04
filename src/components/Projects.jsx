@@ -19,10 +19,10 @@ const projects = [
   },
   {
     id: 3,
-    name: "blogging",
+    name: "blogwebsite",
     technologies: "React",
     image: blog,
-    github: " ",
+    github: " https://blogwebsite-sumit-vikram-singhs-projects.vercel.app/ ",
   },
 ];
 
