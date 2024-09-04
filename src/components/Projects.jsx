@@ -5,25 +5,28 @@ import currconv from "../assets/currency-convertor.png";
 const projects = [
   {
     id: 1,
+    name: "blogwebsite",
+    technologies: "React+Appwrite",
+    image: blog,
+    github: " https://blogwebsite-sumit-vikram-singhs-projects.vercel.app/ ",
+    
+   
+  },
+  {
+    id: 2,
     name: "Cryptotracker",
     technologies: "React",
     image: cryptotrack,
     github: "https://cryptotrackerr11.netlify.app/",
+   
   },
   {
-    id: 2,
+    id: 3,
     name: "currency convertor",
     technologies: "React",
     image: currconv,
     github: "https://currencyconvert11.netlify.app/",
-  },
-  {
-    id: 3,
-    name: "blogwebsite",
-    technologies: "React",
-    image: blog,
-    github: " https://blogwebsite-sumit-vikram-singhs-projects.vercel.app/ ",
-  },
+  }
 ];
 
 const Projects = () => {
