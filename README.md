@@ -19,9 +19,6 @@ Authentication: Appwrite (or your preferred authentication service)
 <h4>Installation</h4>
 
 Clone the repository:git clone https://github.com/sumit12376/Blogwebsite.git
-Navigate to the project directory:
-
-
 
 <h4>Usage</h4>
 
