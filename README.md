@@ -1,28 +1,30 @@
-<h2>Blogging Website</h2>
+# My Portfolio
 
-Welcome to the Blogging Website project! This is a modern web application designed to create, manage, and display blog posts. Built with a focus on simplicity and functionality, this project leverages React, Tailwind CSS, and React Hook Form for a seamless user experience.
+Welcome to my portfolio! This is a frontend-only application built with React that showcases my work, projects, and contact information. It is designed to be fully responsive for a great user experience across all devices.
 
-<h4>Features</h4>
+## About project
 
-User Authentication: Secure login and registration <br>
-Create & Edit Posts: Write, edit, and format blog posts using TinyMCE.<br>
-Responsive Design: Mobile-friendly layout using Tailwind CSS.<br>
-Post Management: Manage your blog posts with an intuitive interface.<br>
+- **About Me:** Discover more about my background and skills.
+- **Projects:** View detailed information about the projects I've worked on.
+- **Contact:** Reach out to me through a contact form.
 
-<h4>Tech Stack</h4>
+## Getting Started
 
-Frontend: React, Tailwind CSS<br>
-State Management: React Hook Form, Redux<br>
-Editor: TinyMCE<br>
-Authentication: Appwrite (or your preferred authentication service)<br>
+To get this project up and running locally, follow these steps:
 
-<h4>Installation</h4>
+### Prerequisites
 
-Clone the repository:git clone https://github.com/sumit12376/Blogwebsite.git<br>
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (v14 or later)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
 
-<h4>Usage</h4>
+### Installation
 
-Registration & Login: Access the authentication pages to create an account or log in.<br>
-Create a New Post: Navigate to the "Create Post" page to start writing.<br>
-Edit Posts: Go to your post list to make changes.<br>
-View Posts: Browse and read posts on the homepage.<br>
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/sumit12376/sumit_portfolio.git
+##Features
+
+- **Responsive Design:** Built to be responsive and adapt to various screen sizes using Tailwind CSS.
+- **React Components:** Modular and maintainable React components.
+- **Styled with Tailwind CSS:** Clean and modern design
