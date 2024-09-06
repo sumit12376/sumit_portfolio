@@ -1,18 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useTypewriter, Cursor } from 'react-simple-typewriter';
 
 const Header = () => {
-  const [role, setRole] = useState('frontend developer');
-
-  useEffect(() => {
-    const roles = ['frontend developer />','backend developer />', 'full-stack developer />','UI/UX designer />'];
-    const interval = setInterval(() => {
-      const randomRole = roles[Math.floor(Math.random() * roles.length)];
-      setRole(randomRole);
+  const [text] = useTypewriter({
+    words: [
+      'frontend developer',
+      'UI/UX designer',
+      'backend developer',
+     " Creative Coder",
+      'full-stack developer',
+      "Software Whiz"
       
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+    ],
+    loop: true,
+    typeSpeed: 60,// Speed at which characters are typed
+    deleteSpeed: 90,// Speed at which characters are deleted
+    delaySpeed: 1200  // Delay before starting to delete
+  });
 
   return (
     <div>
@@ -22,10 +26,10 @@ const Header = () => {
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
           Sumit Vikram Singh
         </span>
-        <span className='text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-yellow-300'>, a {role}</span>
-
-
-
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-yellow-300">
+          , a {text}
+          <Cursor />
+        </span>
       </h1>
     </div>
   );
