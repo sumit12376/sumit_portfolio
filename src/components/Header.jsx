@@ -1,8 +1,8 @@
 import React from 'react';
-import { useTypewriter, Cursor } from 'react-simple-typewriter';
+import {useTypewriter,Cursor} from 'react-simple-typewriter';
 
-const Header = () => {
-  const [text] = useTypewriter({
+const Header=() => {
+  const [text]=useTypewriter({
     words: [
       'frontend developer',
       'UI/UX designer',
