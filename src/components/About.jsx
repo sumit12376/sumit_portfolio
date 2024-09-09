@@ -14,7 +14,7 @@ const About = () => {
           />
           <div className="flex-1">
             <p className="text-lg mb-8 leading-relaxed">
-              I am a passionate frontend developer with a deep expertise in HTML, CSS, React, and JavaScript. My focus is on crafting modern and responsive web applications that not only meet but exceed user expectations. I thrive on turning complex problems into simple, intuitive, and engaging solutions, always keeping performance and accessibility at the forefront of my work. Whether it's creating dynamic user interfaces or ensuring seamless user experiences, I am dedicated to delivering high-quality results and continuously improving my skills to stay ahead of the latest industry trends.
+            I have a strong foundation in frontend development, with deep expertise in HTML, CSS, React, and JavaScript. My focus is on crafting modern and responsive web applications that not only meet but exceed user expectations. I thrive on turning complex problems into simple, intuitive, and engaging solutions, always keeping performance and accessibility at the forefront of my work. While my primary strength lies in frontend development, I am currently in the learning phase of backend development, specifically focusing on Node.js, Express, and MongoDB, continually expanding my skill set to become a well-rounded developer.
             </p>
             <div className="space-y-4">
               <SkillBar label="HTML & CSS" width="w-11/12" />
