@@ -13,8 +13,8 @@ const Header=() => {
       
     ],
     loop: true,
-    typeSpeed: 60,// Speed at which characters are typed
-    deleteSpeed: 90,// Speed at which characters are deleted
+    typeSpeed: 80,// Speed at which characters are typed
+    deleteSpeed: 80,// Speed at which characters are deleted
     delaySpeed: 1200  // Delay before starting to delete
   });
 
