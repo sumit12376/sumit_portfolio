@@ -2,7 +2,15 @@ import React from "react";
 import blog from "../assets/blogging website.png";
 import cryptotrack from "../assets/cryptotracker.png";
 import currconv from "../assets/currency-convertor.png";
+import book from "../assets/book2.jpg";
 const projects = [
+  {
+    id: 4,
+    name: "Books-A-Million",
+    technologies: "MERN",
+    image: book,
+    github: "https://books-a-million.netlify.app/",
+  },
   {
     id: 1,
     name: "blogwebsite",
@@ -26,7 +34,8 @@ const projects = [
     technologies: "React",
     image: currconv,
     github: "https://currencyconvert11.netlify.app/",
-  }
+  },
+
 ];
 
 const Projects = () => {
