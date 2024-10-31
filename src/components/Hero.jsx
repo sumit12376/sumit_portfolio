@@ -3,7 +3,7 @@ import HeroImage from '../assets/hero-image.png';
 import Header from './Header';
 const Hero = () => {
   const handleResumeClick = () => {
-    window.open('https://drive.google.com/file/d/1wQY2dLANikDXOIL-novs_2-UeCfxD_va/view?usp=sharing', '_blank');
+    window.open('https://drive.google.com/file/d/17LO0ALSeDOXAZyQYnhIfpUx2TCeawxZ6/view?usp=sharing', '_blank');
   };
 
   return (
