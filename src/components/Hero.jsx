@@ -39,14 +39,17 @@ const Hero = () => {
       id="Home"
     >
       {/* Hero Image */}
-      <img
-        key={isDark ? "dark" : "light"}
-        src={isDark ? AboutImageLight : AboutImageDark}
-        alt="Hero"
-        className={`mx-auto mb-8 w-48 h-48 rounded-full object-cover shadow-lg transition-opacity duration-500 ${
-          loaded ? "opacity-100" : "opacity-0"
-        }`}
-      />
+      <div className="flex justify-center mb-8">
+        <img
+          key={isDark ? "dark" : "light"}
+          src={isDark ? AboutImageLight : AboutImageDark}
+          alt="Hero"
+          className={`w-48 h-auto rounded-full shadow-lg transition-opacity duration-500 ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ maxHeight: "13rem" }} // Adjust this value as needed
+        />
+      </div>
 
       <Header />
 
