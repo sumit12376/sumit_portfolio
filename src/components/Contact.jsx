@@ -24,7 +24,7 @@ const Contact = () => {
   };
 
   return (
-    <div className={`${isDark ? "bg-gray-900 text-gray-300" : "bg-white text-black"} py-20`} id="contact">
+    <div className={`${isDark ? "bg-black text-white" : "bg-white text-black"} py-20`} id="contact">
       <div className="container mx-auto px-8 md:px-16 lg:px-24">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
