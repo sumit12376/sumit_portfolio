@@ -8,7 +8,7 @@ import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import Projects from './components/Projects';
 import SplashScreen from './components/SplashScreen';
-
+import { ThemeProvider } from './ThemeContext';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -28,6 +28,7 @@ function App() {
      
       {!showSplash && (
         <div>
+            <ThemeProvider>
           <Navbar />
           <Hero />
           <About />
@@ -35,7 +36,7 @@ function App() {
           <Projects />
           <Contact />
           <Footer />
-        
+          </ThemeProvider>
         </div>
       )}
     </>

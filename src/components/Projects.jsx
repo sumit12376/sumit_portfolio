@@ -1,8 +1,11 @@
 import React from "react";
+import { motion } from "framer-motion";
 import blog from "../assets/blogging website.png";
 import cryptotrack from "../assets/cryptotracker.png";
 import currconv from "../assets/currency-convertor.png";
 import book from "../assets/book2.jpg";
+import { useTheme } from "../ThemeContext";
+
 const projects = [
   {
     id: 4,
@@ -13,52 +16,74 @@ const projects = [
   },
   {
     id: 1,
-    name: "blogwebsite",
-    technologies: "React+Appwrite",
+    name: "Blog Website",
+    technologies: "React + Appwrite",
     image: blog,
-    github: " https://blogwebsite-sumit-vikram-singhs-projects.vercel.app/ ",
-    
-   
+    github: "https://blogwebsite-sumit-vikram-singhs-projects.vercel.app/",
   },
   {
     id: 2,
-    name: "Cryptotracker",
+    name: "CryptoTracker",
     technologies: "React",
     image: cryptotrack,
     github: "https://cryptotrackerr11.netlify.app/",
-   
   },
   {
     id: 3,
-    name: "currency convertor",
+    name: "Currency Convertor",
     technologies: "React",
     image: currconv,
     github: "https://currencyconvert11.netlify.app/",
   },
-
 ];
 
 const Projects = () => {
+  const { isDark } = useTheme();
   return (
-    <div className="bg-black text-white py-20" id="project">
+    <section className={`${isDark ? "bg-black text-white" : "bg-white text-black"} py-20`} id="project">
       <div className="container mx-auto px-8 md:px-16 lg:px-24">
-        <h2 className="text-4xl font-bold text-center mb-12">My Projects</h2>
+     <motion.h2
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.6 }}
+               className="text-4xl font-bold text-center mb-12"
+             >
+              My Projects
+             </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div key={project.id} className="bg-gray-800 p-6 rounded-lg hover:shadow-lg 
-            transform transition-transform duration-300 hover:scale-105">
-              <img src={project.image} alt={project.name} className="rounded-lg mb-4 
-              w-full h-48 object-cover" />
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className={`p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 ${
+                isDark ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
+              }`}
+            >
+              <img
+                src={project.image}
+                alt={project.name}
+                className="rounded-lg mb-4 w-full h-48 object-cover"
+              />
               <h3 className="text-2xl font-bold mb-2">{project.name}</h3>
-              <p className="text-gray-400 mb-4">{project.technologies}</p>
-              <a href={project.github} className="inline-block bg-gradient-to-r 
-              from-green-400 to-blue-500 text-white px-4 py-2 rounded-full" target="_blank" 
-              >Live</a>
-            </div>
+              <p className={`${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>
+                {project.technologies}
+              </p>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-full"
+              >
+                Live
+              </a>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
