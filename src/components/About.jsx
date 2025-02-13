@@ -1,5 +1,5 @@
 import React from "react";
-import AboutImageLight from "../assets/hero-image.png"; e
+import AboutImageLight from "../assets/hero-image.png"; 
 import AboutImageDark from "../assets/sumi.png";
 import { motion } from "framer-motion";
 import { useTheme } from "../ThemeContext";
