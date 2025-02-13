@@ -9,12 +9,19 @@ const Hero = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const imgLight = new Image();
-    const imgDark = new Image();
-    imgLight.src = AboutImageLight;
-    imgDark.src = AboutImageDark;
+    const images = [AboutImageLight, AboutImageDark];
+    let loadedCount = 0;
 
-    imgLight.onload = imgDark.onload = () => setLoaded(true);
+    const handleLoad = () => {
+      loadedCount++;
+      if (loadedCount === images.length) setLoaded(true);
+    };
+
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = handleLoad;
+    });
   }, []);
 
   const handleResumeClick = () => {
@@ -26,14 +33,15 @@ const Hero = () => {
 
   return (
     <div
-      className={`text-center py-16  ${
+      className={`text-center py-16 px-4 sm:px-8 lg:px-16 ${
         isDark ? "bg-black text-white" : "bg-white text-black"
       }`}
+      id="Home"
     >
-   
+      {/* Hero Image */}
       <img
-        key={isDark ? "dark" : "light"} 
-        src={isDark ?  AboutImageLight:AboutImageDark }
+        key={isDark ? "dark" : "light"}
+        src={isDark ? AboutImageLight : AboutImageDark}
         alt="Hero"
         className={`mx-auto mb-8 w-48 h-48 rounded-full object-cover shadow-lg transition-opacity duration-500 ${
           loaded ? "opacity-100" : "opacity-0"
@@ -44,8 +52,9 @@ const Hero = () => {
 
       <div className="mt-8 space-x-4">
         <button
-          className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full"
+          className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-medium px-6 py-3 rounded-full transform transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
           onClick={handleResumeClick}
+          aria-label="View Resume"
         >
           Resume
         </button>
