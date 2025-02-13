@@ -1,6 +1,6 @@
 import React from "react";
-import AboutImageLight from "../assets/hero-image.png";
-import AboutImageDark from "../assets/sumi.png"; 
+import AboutImageLight from "../assets/hero-image.jpg";
+import AboutImageDark from "../assets/sumi.png";
 import { motion } from "framer-motion";
 import { useTheme } from "../ThemeContext";
 
@@ -23,18 +23,37 @@ const About = () => {
         >
           About Me
         </motion.h2>
-        <div className="flex flex-col md:flex-row items-center md:space-x-12">
-          <img
-            src={isDark ? AboutImageLight : AboutImageDark} 
-            alt="About Me"
-            className="w-72 h-80 rounded-lg object-cover mb-8 md:mb-0 shadow-xl"
-          />
-          <div className="flex-1">
-            <p className="text-lg mb-8 leading-relaxed text-justify">
-              I am a <span className="font-semibold text-blue-500">Full Stack Developer</span> specializing in the{" "}
-              <span className="font-semibold text-green-500">MERN stack</span> (MongoDB, Express.js, React, and Node.js) and a solid understanding of SQL. I specialize in building modern, responsive, and high-performance web applications, ensuring seamless user experiences. My backend skills allow me to develop robust APIs and server-side logic, while my frontend expertise enables me to create intuitive and dynamic UIs. I am passionate about writing clean, maintainable code and continuously expanding my technical knowledge to stay updated with industry trends.
+
+        {/* Flex Container */}
+        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+          {/* Image Section */}
+          <div className="flex justify-center lg:justify-start w-full lg:w-auto">
+            <img
+              src={isDark ? AboutImageLight : AboutImageDark}
+              alt="About Me"
+              className="w-80 h-auto lg:h-[400px] lg:w-[450px] rounded-lg lg:object-cover shadow-xl"
+            />
+          </div>
+
+          {/* Text & Skills Section */}
+          <div className="flex flex-col justify-center w-full">
+            <p className="text-lg mb-12 leading-relaxed">
+              I am a{" "}
+              <span className="font-semibold text-blue-500">Full Stack Developer </span> 
+              specializing in the{" "}
+              <span className="font-semibold text-green-500">MERN stack </span> 
+              (MongoDB, Express.js, React, and Node.js) and have a solid 
+              understanding of SQL. I specialize in building modern, responsive, 
+              and high-performance web applications, ensuring seamless user 
+              experiences. My backend skills allow me to develop robust APIs and 
+              server-side logic, while my frontend expertise enables me to create 
+              intuitive and dynamic UIs. I am passionate about writing clean, 
+              maintainable code and continuously expanding my technical knowledge 
+              to stay updated with industry trends.
             </p>
-            <div className="space-y-5">
+
+            {/* Skill Bars */}
+            <div className="space-y-4">
               <SkillBar label="HTML & CSS" width="w-11/12" percentage="90%" isDark={isDark} />
               <SkillBar label="JavaScript" width="w-9/12" percentage="75%" isDark={isDark} />
               <SkillBar label="React JS" width="w-10/12" percentage="85%" isDark={isDark} />
