@@ -47,7 +47,7 @@ const Hero = () => {
           className={`w-48 h-auto rounded-full shadow-lg transition-opacity duration-500 ${
             loaded ? "opacity-100" : "opacity-0"
           }`}
-          style={{ maxHeight: "13rem" }} // Adjust this value as needed
+          style={{ maxHeight: "13rem", }} // Adjust this value as needed
         />
       </div>
 
