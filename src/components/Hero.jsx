@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import AboutImageLight from "../assets/hero-image.png";
+import AboutImageLight from "../assets/hero-image.jpg";
 import AboutImageDark from "../assets/sumi.png";
 import Header from "./Header";
 import { useTheme } from "../ThemeContext";
