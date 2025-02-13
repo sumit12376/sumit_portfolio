@@ -24,7 +24,7 @@ const Contact = () => {
   };
 
   return (
-    <div className={`${isDark ? "bg-black text-white" : "bg-white text-black"} py-20`} id="contact">
+    <div className={`${isDark ? "bg-gray-900 text-gray-300" : "bg-white text-black"} py-20`} id="contact">
       <div className="container mx-auto px-8 md:px-16 lg:px-24">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -34,7 +34,7 @@ const Contact = () => {
         >
           Get in Touch
         </motion.h2>
-        <div className="flex flex-col items-center md:space-x-12">
+        <div className="flex flex-col items-center w-full">
           <div className="mb-8 max-w-2xl text-center">
             <p className="mb-4 text-lg leading-relaxed">
               I’d love to hear from you! Whether you have a question, a project in mind, or just want to connect, feel free to drop a message. Let’s create something amazing together!
@@ -43,44 +43,48 @@ const Contact = () => {
               <FaEnvelope className="inline-block mr-2" /> Reach me directly via the form below.
             </p>
           </div>
-          <div className="flex-1 w-full max-w-lg">
-            <form ref={form} onSubmit={sendEmail} className="space-y-6">
-              <div>
+          <div className="w-full">
+            <form ref={form} onSubmit={sendEmail} className="space-y-6 w-full">
+              <div className="w-full">
                 <label htmlFor="name" className="block text-lg font-medium mb-2">Your Name</label>
                 <input 
                   type="text" 
                   name="user_name"
-                  className={`w-full p-3 rounded-lg ${isDark ? "bg-gray-800 text-gray-200 border-gray-700" : "bg-gray-100 text-black border-gray-400"} focus:outline-none focus:border-green-400`}
+                  className={`w-full p-3 rounded-lg border ${isDark ? "bg-gray-800 text-gray-200 border-gray-700" : "bg-gray-100 text-black border-gray-400"} focus:outline-none focus:border-green-400`}
                   placeholder="Enter Your Name"
                   required
                 />
               </div>
-              <div>
+              <div className="w-full">
                 <label htmlFor="email" className="block text-lg font-medium mb-2">Email</label>
                 <input 
                   type="email" 
                   name="user_email"
-                  className={`w-full p-3 rounded-lg ${isDark ? "bg-gray-800 text-gray-200 border-gray-700" : "bg-gray-100 text-black border-gray-400"} focus:outline-none focus:border-green-400`}
+                  className={`w-full p-3 rounded-lg border ${isDark ? "bg-gray-800 text-gray-200 border-gray-700" : "bg-gray-100 text-black border-gray-400"} focus:outline-none focus:border-green-400`}
                   placeholder="Enter Your Email"
                   required
                 />
               </div>
-              <div>
+              <div className="w-full">
                 <label htmlFor="message" className="block text-lg font-medium mb-2">Message</label>
                 <textarea 
                   name="message"
-                  className={`w-full p-3 rounded-lg ${isDark ? "bg-gray-800 text-gray-200 border-gray-700" : "bg-gray-100 text-black border-gray-400"} focus:outline-none focus:border-green-400`}
+                  className={`w-full p-3 rounded-lg border ${isDark ? "bg-gray-800 text-gray-200 border-gray-700" : "bg-gray-100 text-black border-gray-400"} focus:outline-none focus:border-green-400`}
                   rows="5"
                   placeholder="Enter Your Message"
                   required
                 />
               </div>
-              <button 
-                type="submit"
-                className="bg-gradient-to-r from-green-500 to-blue-500 text-white text-lg font-semibold transform transition-transform duration-300 hover:scale-105 px-8 py-3 rounded-lg shadow-lg"
-              >
-                Send Message
-              </button>
+              <div className="flex ">
+  <button 
+    type="submit"
+    className="bg-gradient-to-r from-green-500 to-blue-500 text-white text-lg font-semibold px-8 py-3 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300"
+  >
+    Send Message
+  </button>
+</div>
+
+
             </form>
           </div>
         </div>
