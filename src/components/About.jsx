@@ -10,7 +10,7 @@ const About = () => {
   return (
     <div
       className={`${
-        isDark ? "bg-black text-white" : "bg-white text-gray-900"
+        isDark ? "bg-black text-white" : "bg-white text-black"
       } py-20`}
       id="about"
     >
