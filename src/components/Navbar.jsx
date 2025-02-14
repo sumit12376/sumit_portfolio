@@ -45,7 +45,7 @@ const Navbar = () => {
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full border border-gray-500 "
+            className="p-2  "
             aria-label="Toggle Theme"
           >
             {isDark ? (
@@ -60,7 +60,7 @@ const Navbar = () => {
         <div className="md:hidden flex items-center space-x-4">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full border border-gray-500 "
+            className="p-2  "
             aria-label="Toggle Theme"
           >
             {isDark ? (
