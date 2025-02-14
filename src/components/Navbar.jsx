@@ -42,7 +42,6 @@ const Navbar = () => {
             Contact
           </a>
 
-          {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
             className="p-2  "
@@ -56,7 +55,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center space-x-4">
           <button
             onClick={toggleTheme}
@@ -80,35 +78,35 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+    
       {isMenuOpen && (
         <div className="md:hidden px-8 pb-4 animate-slideDown">
           <div className="flex flex-col space-y-4">
             <a
               href="#Home"
               className="text-md font-medium hover:text-blue-500 transition-colors duration-200"
-              onClick={handleLinkClick} // Close menu on click
+              onClick={handleLinkClick} 
             >
               Home
             </a>
             <a
               href="#about"
               className="text-md font-medium hover:text-blue-500 transition-colors duration-200"
-              onClick={handleLinkClick} // Close menu on click
+              onClick={handleLinkClick} 
             >
               About Me
             </a>
             <a
               href="#project"
               className="text-md font-medium hover:text-blue-500 transition-colors duration-200"
-              onClick={handleLinkClick} // Close menu on click
+              onClick={handleLinkClick} 
             >
               Projects
             </a>
             <a
               href="#contact"
               className="text-md font-medium hover:text-blue-500 transition-colors duration-200"
-              onClick={handleLinkClick} // Close menu on click
+              onClick={handleLinkClick} 
             >
               Contact
             </a>
