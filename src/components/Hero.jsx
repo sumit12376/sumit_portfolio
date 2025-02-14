@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AboutImageLight from "../assets/hero-image.jpg";
 import AboutImageDark from "../assets/sumi.png";
+
 import Header from "./Header";
 import { useTheme } from "../ThemeContext";
 
@@ -44,7 +45,7 @@ const Hero = () => {
   key={isDark ? "dark" : "light"}
   src={isDark ? AboutImageLight : AboutImageDark}
   alt="Hero"
-  className={`w-32 h-32 rounded-full shadow-lg transition-opacity duration-500 object-cover ${
+  className={`w-32 h-32  rounded-full shadow-lg transition-opacity duration-500 object-cover ${
     loaded ? "opacity-100" : "opacity-0"
   }`}
 />
