@@ -40,7 +40,7 @@ const Hero = () => {
       id="Home"
     >
       {/* Hero Image */}
-      <div className="flex justify-center mb-8">
+      <div className="flex justify-center mb-8 mt-9">
       <img
   key={isDark ? "dark" : "light"}
   src={isDark ? AboutImageLight : AboutImageDark}
