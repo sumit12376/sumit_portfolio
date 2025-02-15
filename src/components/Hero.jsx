@@ -27,7 +27,7 @@ const Hero = () => {
 
   const handleResumeClick = () => {
     window.open(
-      "https://drive.google.com/file/d/1eACllAjzEbpXuCYkBGhxmG7K_FWqa-4V/view?usp=sharing",
+      "https://drive.google.com/file/d/1MD66CibqzZcAVLPwp72j99072X_LrfST/view?usp=sharing",
       "_blank"
     );
   };
@@ -39,7 +39,6 @@ const Hero = () => {
       }`}
       id="Home"
     >
-      {/* Hero Image */}
       <div className="flex justify-center mb-8 mt-9">
       <img
   key={isDark ? "dark" : "light"}

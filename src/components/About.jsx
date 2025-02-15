@@ -24,9 +24,8 @@ const About = () => {
           About Me
         </motion.h2>
 
-        {/* Flex Container */}
         <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
-          {/* Image Section */}
+         
           <div className="flex justify-center lg:justify-start w-full lg:w-auto">
             <img
               src={isDark ? AboutImageLight : AboutImageDark}
@@ -35,7 +34,7 @@ const About = () => {
             />
           </div>
 
-          {/* Text & Skills Section */}
+        
           <div className="flex flex-col justify-center w-full">
             <p className="text-lg mb-12 leading-relaxed">
               I am a{" "}
