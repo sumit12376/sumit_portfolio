@@ -27,7 +27,7 @@ const Hero = () => {
 
   const handleResumeClick = () => {
     window.open(
-      "https://drive.google.com/file/d/1MD66CibqzZcAVLPwp72j99072X_LrfST/view?usp=sharing",
+      "https://drive.google.com/file/d/1VzTyJrP44Ttqp45dGglj651bSXwje63X/view?usp=sharing",
       "_blank"
     );
   };
