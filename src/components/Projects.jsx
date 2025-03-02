@@ -1,47 +1,57 @@
 import React from "react";
 import { motion } from "framer-motion";
-import blog from "../assets/blogging website.png";
-import cryptotrack from "../assets/cryptotracker.png";
-import currconv from "../assets/currency-convertor.png";
-import book from "../assets/book2.jpg";
+import blog from "../assets/blogs.png";
+import cryptotrack from "../assets/crypto.png";
+import currconv from "../assets/curr.png";
+import book from "../assets/book.png";
 import { useTheme } from "../ThemeContext";
-import logo from "../assets/logo.png";
+import logo from "../assets/ecom.png";
 
 const projects = [
   {
     id: 1,
     name: "Elitemart",
-    technologies: "MERN",
+    technologies: ["MongoDB", "Express.js", "React", "Node.js"],
     image: logo,
     github: "https://elitemart-frontend.vercel.app/",
+    description:
+      "A full-stack e-commerce platform with secure authentication, advanced product management, and seamless payment integration. Designed for scalability and high performance.",
   },
   {
     id: 2,
     name: "Books-A-Million",
-    technologies: "MERN",
+    technologies: ["MongoDB", "Express.js", "React", "Node.js"],
     image: book,
     github: "https://books-a-million.netlify.app/",
+    description:
+      "An online bookstore that allows users to explore, search, and purchase books effortlessly. Features include authentication, a shopping cart, and order tracking.",
   },
   {
     id: 3,
     name: "Blog Website",
-    technologies: "React + Appwrite",
+    technologies: ["React", "Appwrite (BaaS)"],
     image: blog,
     github: "https://blogwebsite-sumit-vikram-singhs-projects.vercel.app/",
+    description:
+      "A dynamic blogging platform enabling users to create, update, and manage blog posts. Built with a React frontend and Appwrite backend for seamless user experience.",
   },
   {
     id: 4,
     name: "CryptoTracker",
-    technologies: "React",
+    technologies: ["React", "CoinGecko API"],
     image: cryptotrack,
     github: "https://cryptotrackerr11.netlify.app/",
+    description:
+      "A cryptocurrency tracker displaying real-time market data. Integrated with the CoinGecko API to fetch live prices, trends, and insights.",
   },
   {
     id: 5,
-    name: "Currency Convertor",
-    technologies: "React",
+    name: "Currency Converter",
+    technologies: ["React", "ExchangeRate API"],
     image: currconv,
     github: "https://currencyconvert11.netlify.app/",
+    description:
+      "A currency conversion tool that provides real-time exchange rates, ensuring accurate conversions for multiple currencies worldwide.",
   },
 ];
 
@@ -75,24 +85,42 @@ const Projects = () => {
                 isDark ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
               }`}
             >
-              <div className="w-full h-48 flex justify-center items-center bg-white rounded-lg overflow-hidden">
+              <div className="w-full h-64 flex justify-center items-center bg-white rounded-lg overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.name}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <h3 className="text-2xl font-bold mt-4 mb-2">{project.name}</h3>
-              <p className={`${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>
-                {project.technologies}
+
+              {/* Styled Tech Stack */}
+              <div className="flex flex-wrap gap-2 mt-2">
+                {project.technologies.map((tech, idx) => (
+                  <span
+                    key={idx}
+                    className="px-2 py-1 text-xs font-semibold bg-gray-200 text-gray-800 rounded-md"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <p
+                className={`mt-3 ${
+                  isDark ? "text-gray-400" : "text-gray-600"
+                }`}
+              >
+                {project.description}
               </p>
+
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-full"
+                className="inline-block mt-4 bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-full hover:opacity-80 transition-opacity"
               >
-                Live
+                Live Demo
               </a>
             </motion.div>
           ))}
