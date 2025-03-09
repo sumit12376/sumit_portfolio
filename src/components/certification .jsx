@@ -31,19 +31,19 @@ function Certifications() {
                             title: "PostgreSQL Certification", 
                             provider: "Udemy", 
                             link: "https://www.udemy.com/certificate/UC-a9e4fd3b-abf8-4416-8842-8e3f170eef3d/", 
-                            issued: "2024" 
+                            issued: "2025" 
                         },
                         { 
                             title: "JavaScript Certification", 
                             provider: "Udemy", 
                             link: "https://www.udemy.com/certificate/UC-20a4d013-575e-450d-86ea-a4fa47f2a6ce/", 
-                            issued: "2024" 
+                            issued: "2025" 
                         },
                         { 
                             title: "Internship Trainee", 
                             provider: "Learnovate Enterprises", 
                             link: "https://drive.google.com/file/d/15UvGbhmZ0zA388XFJQKvOj8OZQnw66pN/view", 
-                            issued: "2023" 
+                            issued: "2024" 
                         },
                     ].map((cert, index) => (
                         <motion.div
