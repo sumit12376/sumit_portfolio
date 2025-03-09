@@ -78,7 +78,7 @@ function Education() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5, delay: index * 0.5 }}
                                 className={`p-6 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105 ${
-                                    isDark ? "bg-gray-800" : "bg-gray-50"
+                                    isDark ? "bg-gray-900" : "bg-gray-100"
                                 }`}
                             >
                                 <h3 className="text-2xl font-bold mb-2">{edu.title}</h3>
