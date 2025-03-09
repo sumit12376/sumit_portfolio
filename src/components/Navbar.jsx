@@ -35,9 +35,16 @@ const Navbar = () => {
           <a href="#about" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">
             About
           </a>
+          <a href="#education" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">
+            Education
+          </a>
           <a href="#project" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">
             Projects
           </a>
+          <a href="#certifications" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">
+          Certifications
+          </a>
+         
           <a href="#contact" className="text-lg font-medium hover:text-blue-500 transition-colors duration-200">
             Contact
           </a>
@@ -97,11 +104,28 @@ const Navbar = () => {
               About Me
             </a>
             <a
+              href="#education"
+              className="text-md font-medium hover:text-blue-500 transition-colors duration-200"
+              onClick={handleLinkClick} 
+            >
+              
+             Education
+            </a>
+            <a
               href="#project"
               className="text-md font-medium hover:text-blue-500 transition-colors duration-200"
               onClick={handleLinkClick} 
             >
+              
               Projects
+            </a>
+            <a
+              href="#certifications"
+              className="text-md font-medium hover:text-blue-500 transition-colors duration-200"
+              onClick={handleLinkClick} 
+            >
+              
+              Certifications
             </a>
             <a
               href="#contact"
