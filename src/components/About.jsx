@@ -1,46 +1,97 @@
 import React from "react";
 import AboutImageLight from "../assets/hero-image.jpg";
-import AboutImageDark from "../assets/sumi.png";
+import AboutImageDark from "../assets/sumitt.png";
 import { motion } from "framer-motion";
 import { useTheme } from "../ThemeContext";
 
 const About = () => {
-  const { isDark } = useTheme();
+  const { isDark = false } = useTheme?.() || {};
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const skills = [
+    { label: "HTML & CSS", width: "w-11/12", percentage: "90%" },
+    { label: "JavaScript", width: "w-9/12", percentage: "75%" },
+    { label: "React JS", width: "w-10/12", percentage: "85%" },
+    { label: "Express JS", width: "w-9/12", percentage: "75%" },
+    { label: "Node JS", width: "w-9/12", percentage: "75%" },
+    { label: "MongoDB", width: "w-8/12", percentage: "70%" },
+    { label: "Tailwind CSS", width: "w-9/12", percentage: "80%" },
+    { label: "Java", width: "w-9/12", percentage: "75%" },
+    { label: "SQL", width: "w-10/12", percentage: "80%" }
+  ];
 
   return (
-    <div
-      className={`${
-        isDark ? "bg-black text-white" : "bg-white text-black"
-      } py-20`}
+    <section 
+      className={`w-full py-24 px-6 ${isDark ? "bg-black" : "bg-white"}`} 
       id="about"
     >
-      <div className="container mx-auto px-8 md:px-16 lg:px-24">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-extrabold text-center mb-12"
+      <div className="max-w-6xl mx-auto">
+       \
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
         >
-          About Me
-        </motion.h2>
+          <h4 className={`text-sm uppercase tracking-wider mb-2 ${isDark ? "text-pink-500" : "text-blue-600"}`}>
+            Professional Profile
+          </h4>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-800"}`}
+          >
+            About Me
+          </motion.h2>
+        </motion.div>
 
-        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
-         
-          <div className="flex justify-center lg:justify-start w-full lg:w-auto">
-            <img
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          className="flex flex-col lg:flex-row items-center gap-12"
+        >
+  
+          <motion.div 
+            variants={item}
+            className="w-full lg:w-1/2 flex justify-center"
+          >
+             <img
               src={isDark ? AboutImageLight : AboutImageDark}
               alt="About Me"
-              className="w-80 h-auto lg:h-[400px] lg:w-[450px] rounded-lg lg:object-cover shadow-xl"
+              className="w-full max-w-md h-auto rounded-xl  hover:shadow-3xl transition-shadow duration-300"
             />
-          </div>
+          </motion.div>
 
-        
-          <div className="flex flex-col justify-center w-full">
-            <p className="text-lg mb-12 leading-relaxed">
+         
+          <motion.div 
+            variants={item}
+            className="w-full lg:w-1/2"
+          >
+            <p className={`text-lg mb-8 leading-relaxed ${isDark ? "text-gray-300" : "text-gray-600"}`}>
               I am a{" "}
-              <span className="font-semibold text-blue-500">Full Stack Developer </span> 
+              <span className={`font-semibold ${isDark ? "text-pink-400" : "text-blue-600"}`}>
+                Full Stack Developer
+              </span>{" "}
               specializing in the{" "}
-              <span className="font-semibold text-green-500">MERN stack </span> 
+              <span className={`font-semibold ${isDark ? "text-pink-400" : "text-blue-600"}`}>
+                MERN stack
+              </span>{" "}
               (MongoDB, Express.js, React, and Node.js) and have a solid 
               understanding of SQL. I specialize in building modern, responsive, 
               and high-performance web applications, ensuring seamless user 
@@ -50,37 +101,48 @@ const About = () => {
               maintainable code and continuously expanding my technical knowledge 
               to stay updated with industry trends.
             </p>
-
-            {/* Skill Bars */}
-            <div className="space-y-4">
-              <SkillBar label="HTML & CSS" width="w-11/12" percentage="90%" isDark={isDark} />
-              <SkillBar label="JavaScript" width="w-9/12" percentage="75%" isDark={isDark} />
-              <SkillBar label="React JS" width="w-10/12" percentage="85%" isDark={isDark} />
-              <SkillBar label="Express JS" width="w-9/12" percentage="75%" isDark={isDark} />
-              <SkillBar label="Node JS" width="w-9/12" percentage="75%" isDark={isDark} />
-              <SkillBar label="MongoDB" width="w-8/12" percentage="70%" isDark={isDark} />
-              <SkillBar label="Tailwind CSS" width="w-9/12" percentage="80%" isDark={isDark} />
-              <SkillBar label="Java" width="w-9/12" percentage="75%" isDark={isDark} />
-              <SkillBar label="SQL" width="w-10/12" percentage="80%" isDark={isDark} />
+            <div className="space-y-6">
+              {skills.map((skill, index) => (
+                <SkillBar 
+                  key={index}
+                  label={skill.label}
+                  width={skill.width}
+                  percentage={skill.percentage}
+                  isDark={isDark}
+                />
+              ))}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
 const SkillBar = ({ label, width, percentage, isDark }) => (
-  <div className="flex items-center">
-    <label className="w-1/3 text-right pr-4 font-semibold">{label}</label>
-    <div className={`flex-1 rounded-full h-3 relative ${isDark ? "bg-gray-700" : "bg-gray-300"}`}>
-      <div className={`bg-gradient-to-r from-green-400 to-blue-500 h-3 rounded-full ${width} relative`}>
-        <span className={`absolute right-2 -top-6 text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
+  <motion.div 
+    initial={{ opacity: 0, x: -20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.5 }}
+    className="flex items-center gap-4"
+  >
+    <span className={`w-32 text-right font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+      {label}
+    </span>
+    <div className={`flex-1 rounded-full h-3 ${isDark ? "bg-gray-700" : "bg-gray-300"}`}>
+      <div 
+        className={`h-3 rounded-full relative ${width} ${
+          isDark 
+            ? "bg-gradient-to-r from-pink-500 to-purple-600" 
+            : "bg-gradient-to-r from-blue-500 to-green-500"
+        }`}
+      >
+        <span className={`absolute right-0 -top-6 text-sm font-semibold ${isDark ? "text-white" : "text-gray-800"}`}>
           {percentage}
         </span>
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 export default About;

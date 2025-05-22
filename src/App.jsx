@@ -11,6 +11,7 @@ import SplashScreen from './components/SplashScreen';
 import { ThemeProvider } from './ThemeContext';
 import Education from './components/education';
 import Certifications from './components/certification ';
+import Whatido from './components/Whatido';
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -34,7 +35,7 @@ function App() {
           <Navbar />
           <Hero />
           <About />
-          
+          <Whatido/>
           <Projects />
           <Education/>
           <Certifications/>

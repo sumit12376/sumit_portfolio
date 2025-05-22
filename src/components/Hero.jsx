@@ -1,67 +1,100 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import AboutImageLight from "../assets/hero-image.jpg";
-import AboutImageDark from "../assets/sumi.png";
-
+import AboutImageDark from "../assets/hero-image.jpg";
 import Header from "./Header";
 import { useTheme } from "../ThemeContext";
 
 const Hero = () => {
-  const { isDark } = useTheme();
+  const { isDark = false } = useTheme?.() || {};
   const [loaded, setLoaded] = useState(false);
+  const [imageSrc, setImageSrc] = useState("");
 
   useEffect(() => {
-    const images = [AboutImageLight, AboutImageDark];
-    let loadedCount = 0;
-
-    const handleLoad = () => {
-      loadedCount++;
-      if (loadedCount === images.length) setLoaded(true);
+    const src = isDark ? AboutImageLight : AboutImageDark;
+    setImageSrc(src);
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {
+      setLoaded(true);
     };
-
-    images.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = handleLoad;
-    });
-  }, []);
+  }, [isDark]);
 
   const handleResumeClick = () => {
     window.open(
-      "https://drive.google.com/file/d/1EPh9KRLOerOXbBAuWMu2hIm9LPPB-yfO/view?usp=sharing",
+      "https://drive.google.com/file/d/1PQiDl2M3k4hh67WErvrCsd99pUh5X50y/view?usp=sharing",
       "_blank"
     );
   };
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
 
   return (
-    <div
-      className={`text-center py-16 px-4 sm:px-8 lg:px-16 ${
-        isDark ? "bg-black text-white" : "bg-white text-black"
-      }`}
-      id="Home"
+    <section 
+      className={`w-full py-24 px-6 ${isDark ? "bg-black" : "bg-white"}`} 
+      id="home"
     >
-      <div className="flex justify-center mb-8 mt-9">
-      <img
-  key={isDark ? "dark" : "light"}
-  src={isDark ? AboutImageLight : AboutImageDark}
-  alt="Hero"
-  className={`w-32 h-32  rounded-full shadow-lg transition-opacity duration-500 object-cover ${
-    loaded ? "opacity-100" : "opacity-0"
-  }`}
-/>
-      </div>
-
-      <Header />
-
-      <div className="mt-8 space-x-4">
-        <button
-          className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-medium px-6 py-3 rounded-full transform transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
-          onClick={handleResumeClick}
-          aria-label="View Resume"
-        >
-          Resume
-        </button>
-      </div>
-    </div>
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="max-w-6xl mx-auto flex flex-col items-center"
+      >
+        <motion.div variants={item} className="mb-12">
+          <div className={`relative w-40 h-40 md:w-48 md:h-48 rounded-full shadow-2xl overflow-hidden border-4 ${
+            isDark ? "border-pink-500/30" : "border-blue-500/30"
+          }`}>
+            <motion.img
+              src={imageSrc}
+              alt="Profile"
+              className={`w-full h-full object-cover transition-opacity duration-500 ${
+                loaded ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+              
+                imageRendering: loaded ? "auto" : "crisp-edges",
+                transform: "translateZ(0)"
+              }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            />
+            {!loaded && (
+              <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse"></div>
+            )}
+          </div>
+        </motion.div>
+        <motion.div variants={item} className="w-full">
+          <Header />
+        </motion.div>
+        <motion.div variants={item} className="mt-12">
+          <motion.button
+            onClick={handleResumeClick}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={`px-8 py-3 rounded-xl text-lg font-semibold shadow-lg ${
+              isDark
+                ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white"
+                : "bg-gradient-to-r from-blue-500 to-green-500 text-white"
+            }`}
+            aria-label="View Resume"
+          >
+            View Resume
+          </motion.button>
+        </motion.div>
+      </motion.div>
+    </section>
   );
 };
 

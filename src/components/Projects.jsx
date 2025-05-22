@@ -56,61 +56,88 @@ const projects = [
 ];
 
 const Projects = () => {
-  const { isDark } = useTheme();
+  const { isDark = false } = useTheme?.() || {};
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <section
-      className={`${
-        isDark ? "bg-black text-white" : "bg-white text-black"
-      } py-20`}
+    <section 
+      className={`w-full py-24 px-6 ${isDark ? "bg-black" : "bg-white"}`} 
       id="project"
     >
-      <div className="container mx-auto px-8 md:px-16 lg:px-24">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center mb-12"
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
         >
-          My Projects
-        </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          <h4 className={`text-sm uppercase tracking-wider mb-2 ${isDark ? "text-pink-500" : "text-blue-600"}`}>
+            Portfolio
+          </h4>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-800"}`}
+          >
+            My Projects
+          </motion.h2>
+        </motion.div>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+        >
+          {projects.map((project) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className={`p-6 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 ${
-                isDark ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
+              variants={item}
+              className={`p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border ${
+                isDark ? "bg-gray-900 text-white border-gray-700" : "bg-gray-100 text-gray-800 border-gray-200"
               }`}
             >
-              <div className="w-full h-64 flex justify-center items-center bg-white rounded-lg overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-bold mt-4 mb-2">{project.name}</h3>
+   <div className="w-full h-52 aspect-[16/10] flex justify-center items-center bg-white rounded-lg overflow-hidden mb-6">
+  <img
+    src={project.image}
+    alt={project.name}
+    className="w-full h-full object-cover"
+  />
+</div>
 
-              {/* Styled Tech Stack */}
-              <div className="flex flex-wrap gap-2 mt-2">
+              <h3 className={`text-2xl font-bold mb-3 ${isDark ? "text-white" : "text-gray-800"}`}>
+                {project.name}
+              </h3>
+              <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech, idx) => (
                   <span
                     key={idx}
-                    className="px-2 py-1 text-xs font-semibold bg-gray-200 text-gray-800 rounded-md"
+                    className={`px-3 py-1 text-sm font-medium rounded-full ${
+                      isDark 
+                        ? "bg-gray-700 text-pink-400" 
+                        : "bg-gray-200 text-blue-600"
+                    }`}
                   >
                     {tech}
                   </span>
                 ))}
               </div>
 
-              <p
-                className={`mt-3 ${
-                  isDark ? "text-gray-400" : "text-gray-600"
-                }`}
-              >
+              <p className={`mb-6 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
                 {project.description}
               </p>
 
@@ -118,13 +145,17 @@ const Projects = () => {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-4 bg-gradient-to-r from-green-400 to-blue-500 text-white px-4 py-2 rounded-full hover:opacity-80 transition-opacity"
+                className={`inline-block w-full text-center py-3 rounded-lg font-medium ${
+                  isDark
+                    ? "bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700"
+                    : "bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600"
+                } text-white transition-all`}
               >
-                Live Demo
+                View Project
               </a>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
